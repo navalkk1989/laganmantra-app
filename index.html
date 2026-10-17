@@ -813,7 +813,7 @@ async function lvUp(data,name){return(await lvPost({action:"up",data,name})).url
 async function lvPhotos(ad){const T=async(o,k,nm)=>{try{o[k]=await lvUp(o[k],nm)}catch(e){lvErr="Photo upload: "+e.message}};if(me&&me.photos)for(let i=0;i<me.photos.length;i++)if(/^data:/.test(me.photos[i]))await T(me.photos,i,"u"+me.id);if(me)for(const m of D.msg)if(m.f==me.id&&m.img&&/^data:/.test(m.img)&&!dum(m.t))await T(m,"img","c"+me.id);if(ad&&D.s.cp&&/^data:/.test(D.s.cp.qr||""))await T(D.s.cp,"qr","qr")}
 function lvQ(){if(!LV())return;clearTimeout(syT);syT=setTimeout(lvSync,1200)}
 async function lvSync(){if(!LV()||syB)return;syB=1;try{
- const ad=!!(staff&&AKEY());let pullOnly=0;if(!!SY.ad!==ad){SY.since={};pullOnly=ad?1:0}SY.ad=ad;
+ const ad=!!(staff&&AKEY());let pullOnly=0;if(!!SY.ad!==ad){SY.since={};pullOnly=ad?1:0}SY.ad=ad;const FULL=!Object.keys(SY.since||{}).length;
  await lvPhotos(ad);
  const push={},keep={};
  for(const col in COL){const L=COL[col](),arr=[],seen={};L.forEach(o=>{const k=String(KF[col](o));seen[k]=1;if(pullOnly||!mineIt(col,o,ad))return;const c=clean(col,o);if((col=="users"&&(c.photos||[]).some(x=>/^data:/.test(x)))||(col=="msg"&&/^data:/.test(c.img||"")))return;const j=JSON.stringify(c);if(SY.h[col+"|"+k]!==j)arr.push({k,o:c,j})});
@@ -823,11 +823,16 @@ async function lvSync(){if(!LV()||syB)return;syB=1;try{
  for(const c in keep)push[c]=keep[c].map(x=>({k:x.k,o:x.o}));
  const j=await lvPost({action:"sync",me:me?String(me.id):"",since:SY.since,admin:ad?AKEY():"",push});if(!j.data)throw new Error("OLD_SERVER");
  for(const c in keep)keep[c].forEach(x=>SY.h[c+"|"+x.k]=x.j);
- SY.adOk=!!j.admin;const ch=lvMerge(j,ad);if(pullOnly)for(const col in COL)COL[col]().forEach(o=>{if(mineIt(col,o,ad))SY.h[col+"|"+KF[col](o)]=JSON.stringify(clean(col,o))});
+ SY.adOk=!!j.admin;SY.sv=j.v||0;let ch=lvMerge(j,ad);if(FULL&&!ad&&me&&j.data&&Array.isArray(j.data.users))ch=lvPrune(j)||ch;if(pullOnly)for(const col in COL)COL[col]().forEach(o=>{if(mineIt(col,o,ad))SY.h[col+"|"+KF[col](o)]=JSON.stringify(clean(col,o))});
  ["users","req","msg","note","pay","lead","alert","bot","set"].forEach(c=>SY.since[c]=j.now-4000);
  SY.lastOk=Date.now();lvErr="";try{localStorage.setItem("lmsy",JSON.stringify(SY));localStorage.setItem("sn",JSON.stringify(D))}catch(e){}
  if(ch)lvRedraw();prInit();
 }catch(e){lvErr=String(e.message||e)}finally{syB=0}}
+/* after a full download: forget old profiles that exist only on this phone/laptop (not on the live server),
+   e.g. accounts made before the live server was switched on – so every device shows exactly the same people */
+function lvPrune(j){const ok=new Set(j.data.users.filter(u=>!u._del).map(u=>String(u.id))),g=new Set(D.users.filter(u=>!u.dummy&&me&&String(u.id)!=String(me.id)&&!ok.has(String(u.id))).map(u=>String(u.id)));if(!g.size)return 0;
+ D.users=D.users.filter(u=>!g.has(String(u.id)));D.req=D.req.filter(r=>!g.has(String(r.f))&&!g.has(String(r.t)));D.msg=D.msg.filter(m=>!g.has(String(m.f))&&!g.has(String(m.t)));g.forEach(id=>delete SY.h["users|"+id]);if(chatW&&g.has(String(chatW)))chatW=null;return 1}
+async function lvFull(){if(!LV())return alert("Live server is not connected.");SY.since={};toast("🔄 Refreshing from the live server…");await lvSync();draw();toast(lvErr?"⚠️ Could not refresh: "+lvErr:"✅ Up to date with the live server (server v"+(SY.sv||"?")+")")}
 function lvMerge(j,ad){let ch=0;const d=j.data||{},off=Date.now()-j.now;
  for(const col in COL){const L=COL[col]();(d[col]||[]).forEach(o=>{const k=String(KF[col](o)),i=L.findIndex(x=>String(KF[col](x))==k);
   if(o._del){if(i>=0&&L[i]!==me){L.splice(i,1);ch=1}SY.h[col+"|"+k]="DEL";return}
@@ -1051,6 +1056,8 @@ AV.pv=()=>{const u=U(pvId);if(!u||!me)return"<p class=empty>Profile not found</p
 {const _ad=appDraw;appDraw=function(){const r=_ad.apply(this,arguments);try{document.body.classList.toggle("pvpage",v=="pv")}catch(e){}return r}}
 
 {const _mn2=AV.menu;AV.menu=()=>{const h=_mn2();try{if(!(window.LMNative&&typeof LMNative.alertSettings=="function"))return h}catch(e){return h}const r=`<div class=mr onclick="LMNative.alertSettings()"><span class=mic style="background:linear-gradient(135deg,#ff5722,#ff9800)">📲</span><b>Notification settings<br><small style="font-weight:500;color:var(--m)">Turn ON “Pop on screen / Floating” so alerts show at the top</small></b><em>›</em></div>`,k=h.indexOf("<div class=ml>");return k<0?h+r:h.slice(0,k+14)+r+h.slice(k+14)}}
+
+{const _mn3=AV.menu;AV.menu=()=>{const h=_mn3(),t=SY.lastOk?new Date(SY.lastOk).toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"}):"never",r=`<div class=mr onclick="lvFull()"><span class=mic style="background:linear-gradient(135deg,#0288d1,#26c6da)">🔄</span><b>Refresh data from server<br><small style="font-weight:500;color:var(--m)">Last synced ${t} · server v${SY.sv||"?"}</small></b><em>›</em></div>`,k=h.indexOf("<div class=ml>");return k<0?h+r:h.slice(0,k+14)+r+h.slice(k+14)}}
 
 addEventListener("hashchange",draw);draw();
 </script></body></html>
