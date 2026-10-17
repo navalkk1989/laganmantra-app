@@ -1,0 +1,16 @@
+{
+  "name": "LaganMantra – Rishta Wahi, Jo Dil Se Ho",
+  "short_name": "LaganMantra",
+  "description": "Find your life partner – verified profiles, swipe to connect, private chat.",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fcf4e6",
+  "theme_color": "#a3122f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

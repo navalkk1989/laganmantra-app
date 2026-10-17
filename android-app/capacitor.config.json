@@ -1,0 +1,7 @@
+{
+  "appId": "com.laganmantra.app",
+  "appName": "LaganMantra",
+  "webDir": "www",
+  "android": { "allowMixedContent": false },
+  "server": { "androidScheme": "https" }
+}
