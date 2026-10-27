@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><script>var WEBV="3.9";/* ===== safety net: if something breaks, show a message + Reload instead of a blank screen ===== */
+<!DOCTYPE html><html lang="en"><head><script>var WEBV="4.0";/* ===== safety net: if something breaks, show a message + Reload instead of a blank screen ===== */
 (function(){const blank=()=>{const t=((document.body||{}).innerText||"").trim();return t.length<20||(/Loading…/.test(t)&&t.length<60)},show=msg=>{try{if(document.getElementById("lmerr"))return;const d=document.createElement("div");d.id="lmerr";d.style.cssText="position:fixed;left:12px;right:12px;bottom:110px;z-index:99999;background:#fff;color:#2b1a24;border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);font:14px/1.45 sans-serif";d.innerHTML='<b>⚠️ Something went wrong while opening LaganMantra.</b><br><small style="color:#7a6571;word-break:break-word">'+String(msg).replace(/[<>&]/g,"").slice(0,220)+'</small><div style="display:flex;gap:8px;margin-top:10px"><button style="flex:1;padding:10px;border:0;border-radius:99px;background:#8b0a24;color:#fff;font-weight:700" onclick="location.reload()">🔄 Reload</button><button style="flex:1;padding:10px;border:1px solid #8b0a24;border-radius:99px;background:#fff;color:#8b0a24;font-weight:700" onclick="try{const k=[\'lmme\',\'lmmeo\',\'lmst\',\'lmak\'],keep={};k.forEach(x=>{const v=localStorage.getItem(x);if(v)keep[x]=v});localStorage.clear();for(const x in keep)localStorage.setItem(x,keep[x])}catch(e){}location.reload()">🧹 Repair</button></div>';document.body.appendChild(d)}catch(e){}};
  window.addEventListener("error",e=>{if(e&&e.message&&!/ResizeObserver|Script error/.test(e.message))setTimeout(()=>{if(blank())show(e.message)},800)});
  setTimeout(()=>{try{if(blank())show("The page did not finish loading. Please check your internet.")}catch(e){}},6000)})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#a3122f"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LaganMantra"><link rel="apple-touch-icon" href="icon-192.png"><title>LaganMantra – Rishta Wahi, Jo Dil Se Ho</title>
@@ -311,6 +311,97 @@ body:has(.ltab) #bot,body:has(#fpid) #bot,body:has(#fpc) #bot{display:none!impor
 .sschk{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0}.sschk label{display:flex;gap:6px;align-items:center}
 .ssbar{position:sticky;bottom:0;background:var(--c);padding:10px 0;border-top:1px solid var(--l);margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:3}
 .ftab{margin:6px 0;color:var(--m)}.lgx p{margin:0 0 10px}.lgx h4{margin:16px 0 6px}
+.updchip.ok{background:rgba(255,255,255,.18)!important;color:#fff!important;border:1px solid rgba(255,255,255,.55)!important;box-shadow:none!important;animation:none!important}
+.updchip.new{animation:updb 1.1s ease-in-out infinite!important}
+@keyframes updb{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,193,7,.95),0 3px 10px rgba(255,111,0,.45);filter:brightness(1)}50%{transform:scale(1.08);box-shadow:0 0 0 9px rgba(255,193,7,0),0 3px 10px rgba(255,111,0,.45);filter:brightness(1.25)}}
+.updchip.wfix{position:fixed;top:14px;right:12px;z-index:30;margin:0!important}
+.updchip.ok.wfix{background:rgba(0,0,0,.35)!important}
+.biow{position:fixed;inset:0;z-index:2147482000;background:rgba(20,5,12,.62);overflow:auto;padding:14px;-webkit-overflow-scrolling:touch}
+.bioc{max-width:1040px;margin:0 auto;background:var(--c,#fff);border-radius:20px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.bioc h3{margin:0 0 4px}.bioc .hint{font-size:12.5px;color:var(--m);margin:0 0 10px}
+.bioc label.fl{margin-top:8px}.bioc .g2{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}.bioc .g2 input,.bioc .g2 select{margin:0}
+.bioth{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 4px}.bioth b{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;font-weight:700;cursor:pointer;border:2px solid transparent;border-radius:12px;padding:6px 4px}
+.bioth b.on{border-color:var(--p);background:var(--s)}.bioth i{display:block;width:100%;height:46px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.biock{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0}.biock label{display:flex;align-items:center;gap:6px;font-size:14px}.biock input{width:auto!important;margin:0!important;min-width:18px;height:18px}
+.biopv{position:relative;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.25);background:#eee}
+.biopv>.bdsc{position:absolute;left:0;top:0;transform-origin:0 0}
+.biobar{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;position:sticky;bottom:-14px;background:var(--c,#fff);padding:10px 0 14px;z-index:2}
+.biobar button{flex:1;min-width:150px}
+.bionote{font-size:12.5px;color:#1b7f3b;background:#e9f7ef;border-radius:10px;padding:8px 10px;margin-top:10px}
+.biocard{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(120deg,#fff1f4,#fff7e8);border:1px solid #f3d3dc}
+.biocard .bic{font-size:34px}.biocard div{flex:1;min-width:180px}.biocard p{margin:2px 0 0;color:var(--m);font-size:13.5px}
+@media(max-width:760px){.bioc{grid-template-columns:1fr;padding:14px}.bioth{grid-template-columns:repeat(2,1fr)}.biow{padding:0}.bioc{border-radius:0;min-height:100%}}
+/* ---- the biodata page itself (A4 = 794 × 1123 px) ---- */
+.bd{width:794px;min-height:1123px;box-sizing:border-box;position:relative;overflow:hidden;font-family:Poppins,"Segoe UI",Roboto,system-ui,sans-serif;font-size:calc(13.4px*var(--fs,1));line-height:1.42;color:#2b1a1f;-webkit-font-smoothing:antialiased}
+.bd *{box-sizing:border-box}
+.bd h1,.bd h3,.bd .bd-sc{font-family:"Playfair Display",Georgia,serif}
+.bd-in{position:relative;z-index:2}
+.bd-top{text-align:center;font-weight:600;letter-spacing:.6px;font-size:1.05em}
+.bd-hd{display:flex;align-items:center;gap:1.6em}
+.bd-ph{flex:none;width:11.2em;height:11.2em;border-radius:50%;overflow:hidden;background:#f3e6e9;display:flex;align-items:center;justify-content:center;color:#b0828f}
+.bd-ph em{font:normal 700 4.2em/1 "Playfair Display",Georgia,serif;color:inherit}
+.bd-ph img{width:100%;height:100%;display:block}
+.bd-nm small{display:block;text-transform:uppercase;letter-spacing:.35em;font-size:.78em;font-weight:600;opacity:.85}
+.bd-nm h1{margin:.12em 0 .3em;font-size:2.7em;line-height:1.08;font-weight:700}
+.bd-tags{display:flex;flex-wrap:wrap;gap:.45em}.bd-tags span{padding:.28em .9em;border-radius:99px;font-size:.88em;font-weight:600}
+.bd-sec{margin-top:1.05em;break-inside:avoid}
+.bd-sec h3{margin:0 0 .5em;font-size:1.32em;display:flex;align-items:center;gap:.45em}
+.bd-g{display:grid;grid-template-columns:1fr 1fr;gap:.38em 1.6em}
+.bd-r{display:grid;grid-template-columns:8.6em 1fr;gap:.6em;align-items:start}
+.bd-r b{font-weight:500;opacity:.72}.bd-r span{font-weight:600;word-break:break-word}
+.bd-p{margin:0;white-space:pre-line}
+.bd-ch{display:flex;flex-wrap:wrap;gap:.4em}.bd-ch span{padding:.22em .8em;border-radius:99px;font-size:.92em;font-weight:500}
+.bd-ft{text-align:center;font-size:.82em;opacity:.7;margin-top:1.3em}
+.bd-cn{position:absolute;font-size:22px;line-height:1;z-index:3}
+/* royal */
+.bd-royal{background:#fffaf0;border:12px solid #7b0d1e;padding:16px}
+.bd-royal .bd-in{border:2px solid #c9a227;min-height:1067px;padding:26px 34px 22px;background:linear-gradient(180deg,#fffdf7,#fff6e3)}
+.bd-royal .bd-cn{color:#c9a227}.bd-royal .c1{left:22px;top:20px}.bd-royal .c2{right:22px;top:20px}.bd-royal .c3{left:22px;bottom:20px}.bd-royal .c4{right:22px;bottom:20px}
+.bd-royal .bd-top{color:#7b0d1e}
+.bd-royal .bd-hd{margin:14px -12px 6px;padding:18px 22px;border-radius:18px;background:linear-gradient(120deg,#6d0a1a,#9b1630 55%,#7b0d1e);color:#fff3cf;box-shadow:0 8px 20px rgba(123,13,30,.25)}
+.bd-royal .bd-ph{border:5px solid #e6c36a;background:#f6e7c8;color:#7b0d1e}
+.bd-royal .bd-nm h1{color:#ffe08a}.bd-royal .bd-tags span{background:rgba(255,224,138,.18);border:1px solid rgba(255,224,138,.6);color:#fff3cf}
+.bd-royal .bd-sec h3{color:#7b0d1e;border-bottom:1.5px solid #e2c98a;padding-bottom:.25em}.bd-royal .bd-sec h3 i{color:#c9a227;font-style:normal}
+.bd-royal .bd-ch span{background:#fbefd2;color:#6d0a1a;border:1px solid #ecd59a}.bd-royal .bd-ft{color:#7b0d1e}
+/* blush */
+.bd-blush{background:linear-gradient(160deg,#fff4f6 0%,#ffe3ea 45%,#fff6ec 100%);padding:34px 40px 26px;color:#3b2028}
+.bd-blush .o1,.bd-blush .o2,.bd-blush .o3{position:absolute;border-radius:50%;z-index:1}
+.bd-blush .o1{width:330px;height:330px;right:-120px;top:-120px;background:rgba(255,160,185,.35)}
+.bd-blush .o2{width:260px;height:260px;left:-110px;bottom:-90px;background:rgba(255,205,150,.38)}
+.bd-blush .o3{width:120px;height:120px;right:60px;bottom:140px;border:10px solid rgba(255,160,185,.25)}
+.bd-blush .bd-top{color:#c2456b}
+.bd-blush .bd-hd{flex-direction:column;text-align:center;gap:.7em;margin:10px 0 4px}
+.bd-blush .bd-ph{border:6px solid #fff;box-shadow:0 10px 26px rgba(194,69,107,.28)}
+.bd-blush .bd-nm h1{color:#b83b5e}.bd-blush .bd-nm small{color:#c97b92}.bd-blush .bd-tags{justify-content:center}.bd-blush .bd-tags span{background:#fff;color:#b83b5e;box-shadow:0 2px 8px rgba(184,59,94,.15)}
+.bd-blush .bd-sec{background:rgba(255,255,255,.82);border-radius:18px;padding:.85em 1.15em;box-shadow:0 4px 16px rgba(184,59,94,.09)}
+.bd-blush .bd-sec h3{color:#b83b5e}.bd-blush .bd-sec h3 i{font-style:normal}
+.bd-blush .bd-ch span{background:#ffe3ea;color:#a3324f}.bd-blush .bd-ft{color:#b83b5e}
+/* modern */
+.bd-modern{background:#fff;display:grid;grid-template-columns:262px 1fr;color:#1f2933}
+.bd-modern .bd-side{background:linear-gradient(170deg,#0f766e,#134e4a);color:#e6fffb;padding:38px 24px 26px;position:relative;z-index:2}
+.bd-modern .bd-main{padding:34px 34px 24px;position:relative;z-index:2}
+.bd-modern .bd-top{color:#0f766e;text-align:left;margin-bottom:.4em}
+.bd-modern .bd-hd{flex-direction:column;align-items:flex-start;gap:1em}
+.bd-modern .bd-ph{width:12.2em;height:12.2em;border:5px solid rgba(255,255,255,.85);margin:0 auto;background:#0b5c55;color:#99f6e4}
+.bd-modern .bd-nm{text-align:center;width:100%}.bd-modern .bd-nm h1{font-size:2.2em;color:#fff}.bd-modern .bd-tags{justify-content:center}
+.bd-modern .bd-tags span{background:rgba(255,255,255,.14);color:#e6fffb}
+.bd-modern .bd-side .bd-sec h3{color:#99f6e4;font-size:1.05em;text-transform:uppercase;letter-spacing:.15em;font-family:Poppins,system-ui,sans-serif}
+.bd-modern .bd-side .bd-g{grid-template-columns:1fr}.bd-modern .bd-side .bd-r{grid-template-columns:1fr;gap:0}.bd-modern .bd-side .bd-r b{opacity:.75;font-size:.85em}
+.bd-modern .bd-main .bd-sec h3{color:#0f766e;text-transform:uppercase;letter-spacing:.14em;font-size:1.02em;font-family:Poppins,system-ui,sans-serif;font-weight:700}
+.bd-modern .bd-main .bd-sec h3:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,#14b8a6,transparent)}
+.bd-modern .bd-main .bd-sec h3 i{display:none}
+.bd-modern .bd-main .bd-g{grid-template-columns:1fr}.bd-modern .bd-main .bd-r{grid-template-columns:10em 1fr}.bd-modern .bd-side .bd-ch span{background:rgba(255,255,255,.16);color:#e6fffb}.bd-modern .bd-ch span{background:#ccfbf1;color:#115e59}.bd-modern .bd-ft{color:#0f766e;text-align:right}
+/* midnight */
+.bd-night{background:linear-gradient(165deg,#0b1633,#16244f 55%,#0b1633);color:#eef1f8;padding:34px 40px 26px}
+.bd-night .o1{position:absolute;z-index:1;inset:16px;border:1.5px solid rgba(230,195,106,.55);border-radius:16px}
+.bd-night .o2{position:absolute;z-index:1;inset:22px;border:1px solid rgba(230,195,106,.22);border-radius:12px}
+.bd-night .bd-top{color:#e6c36a}
+.bd-night .bd-hd{margin:12px 0 6px}
+.bd-night .bd-ph{border:4px solid #e6c36a;background:#1f2f61;color:#e6c36a}
+.bd-night .bd-nm h1{color:#f3d68a}.bd-night .bd-nm small{color:#c9b27a}.bd-night .bd-tags span{border:1px solid rgba(230,195,106,.6);color:#f3d68a}
+.bd-night .bd-sec{background:rgba(255,255,255,.05);border:1px solid rgba(230,195,106,.25);border-radius:14px;padding:.8em 1.1em}
+.bd-night .bd-sec h3{color:#e6c36a}.bd-night .bd-sec h3 i{font-style:normal}
+.bd-night .bd-ch span{background:rgba(230,195,106,.14);color:#f3d68a}.bd-night .bd-ft{color:#c9b27a}
 .bulk{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:8px 10px;border-radius:12px;background:var(--s);margin-bottom:8px;opacity:.55;pointer-events:none}.bulk.on{opacity:1;pointer-events:auto;border:2px solid #1e88e5}.bulk button{padding:6px 10px;font-size:12.5px}
 .usel{width:18px!important;height:18px;margin:0!important}
 .upib{display:inline-block;margin:8px 0;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,#00a86b,#1e88e5);color:#fff!important;text-decoration:none;font-weight:800}
@@ -881,7 +972,7 @@ function aswp(){const e=$("#ac");if(!e||!e.dataset)return;const id=+e.dataset.id
 AV.mail=()=>`<div class=seg><button class="${mt=="req"?"on":""}" onclick="mt='req';draw()">📥 Requests</button><button class="${mt=="chat"?"on":""}" onclick="mt='chat';draw()">💬 Chats</button><button class="${mt=="on"?"on":""}" onclick="mt='on';draw()">🟢 Online</button></div><div class=mp>${mt=="req"?V.req():mt=="on"?V.online():V.chat()}</div>`;
 AV.menu=()=>{const act=me.exp>Date.now(),row=(ic,l,fn,c)=>`<div class=mr onclick="${fn}"><span class=mic style="background:${c}">${ic}</span><b>${l}</b><em>›</em></div>`;return`<div class=mhd><span class=bigav>${avIn(me)}</span><h3>${esc(me.name)} <span style="color:#1da1f2">✔</span></h3><small>LM${me.id%1e5} · ${esc(me.city)}</small><div class=mst>${act?"Premium active till "+new Date(me.exp).toDateString():D.s.free?"Free premium is active":"Membership expired"}</div><button class=pbtn onclick="go('plans')">${CR(16)} ${act?"⬆ Upgrade premium":"Upgrade to premium Now"}</button></div><div class=ml>${row("✏️","Edit My Profile","editP()","linear-gradient(135deg,#d81b60,#ff7a45)")}${row("🔍","Search Profiles","go('search')","linear-gradient(135deg,#00a86b,#43d19e)")}${row("📷","Manage My Photos","editP()","linear-gradient(135deg,#8e24aa,#ce93d8)")}${row("🔔","Notifications","go('nt')","linear-gradient(135deg,#ff9800,#ffc107)")}${row("🧾","Profile, plan & invoices","go('prof')","linear-gradient(135deg,#1e88e5,#42a5f5)")}${row("📞","Contact us","contact()","linear-gradient(135deg,#2e7d32,#66bb6a)")}${row("💸","Refund policy","legal('rf')","linear-gradient(135deg,#00897b,#4db6ac)")}${row("📜","Terms & privacy","legal('tc')","linear-gradient(135deg,#5e35b1,#9575cd)")}${row("🌐","Open full website","setApp(false)","linear-gradient(135deg,#6d4c41,#a1887f)")}${row("🚪","Logout","logout()","linear-gradient(135deg,#c62828,#ef5350)")}</div>`};
 function dlApp(){if(/LaganMantraApp/.test(navigator.userAgent))return ovl(`<div style="text-align:center;padding:10px"><div style="font-size:52px">✅</div><h2 style="margin:6px 0">You are already using the LaganMantra app</h2><p style="color:var(--m)">The app updates itself automatically – just close and reopen it.</p></div>`);const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent);
-ovl(`<div style="text-align:center"><span class=lgo style="width:190px;height:99px;border-radius:14px"></span><h2 style="margin:8px 0">Get the LaganMantra App 📲</h2><p style="color:var(--m)">Swipe profiles, chat, audio &amp; video calls and instant notifications.</p>${ios?`<div class=cd style="text-align:left"><b>🍎 iPhone</b><br>The app is for Android phones. On iPhone open this website in <b>Safari</b> → tap <b>Share</b> → <b>Add to Home Screen</b>.</div>`:APK_URL?`<div class=stb><a href="${APK_URL}?v=${Date.now()}" download="LaganMantra.apk" onclick="dlStart()" style="background:linear-gradient(135deg,#00a86b,#1e88e5);padding:14px 22px">${ANDI}<span><small>Free · Android · v3.8 (latest)</small><b>Download Android App</b></span></a></div><div id=dlst class=dlst></div>`:`<p>Open this page from the website on your Android phone to download the app.</p>`}
+ovl(`<div style="text-align:center"><span class=lgo style="width:190px;height:99px;border-radius:14px"></span><h2 style="margin:8px 0">Get the LaganMantra App 📲</h2><p style="color:var(--m)">Swipe profiles, chat, audio &amp; video calls and instant notifications.</p>${ios?`<div class=cd style="text-align:left"><b>🍎 iPhone</b><br>The app is for Android phones. On iPhone open this website in <b>Safari</b> → tap <b>Share</b> → <b>Add to Home Screen</b>.</div>`:APK_URL?`<div class=stb><a href="${APK_URL}?v=${Date.now()}" download="LaganMantra.apk" onclick="dlStart()" style="background:linear-gradient(135deg,#00a86b,#1e88e5);padding:14px 22px">${ANDI}<span><small>Free · Android · v3.9 (latest)</small><b>Download Android App</b></span></a></div><div id=dlst class=dlst></div>`:`<p>Open this page from the website on your Android phone to download the app.</p>`}
 ${ios?"":`<div class=dls><b>How to install after the download</b><ol><li>Wait until the download finishes (see the notification bar ⬇).</li><li>Tap the download notification, or open <b>Files → Downloads</b> and tap <b>LaganMantra.apk</b>.</li><li>If the phone asks, tap <b>Settings → Allow from this source</b>, then press back.</li><li>Tap <b>Install</b> and wait for <b>“App installed”</b>, then tap <b>Open</b>. 🎉</li><li>If <b>Play Protect</b> shows a warning, tap <b>More details → Install anyway</b>.</li><li>If it says <b>“App not installed”</b>, uninstall the old LaganMantra app first and install again.</li></ol></div>`}</div>`)}
 function dlStart(){const e=$("#dlst");if(e)e.innerHTML="⬇ Download started… When it finishes, tap it in the notification bar and follow the steps below."}
 /* ===== Online members, calls, Razorpay ===== */
@@ -1378,7 +1469,7 @@ const ponSw=(k,l)=>`<span class=ponw><button class="swt${PON(k)?" on":""}" oncli
  return`<div class="cd ponsum"><b>💳 What members see on the payment screen</b><div class=pong>${[["co","🏢 Company profile"],["bank","🏦 Bank account"],["upi","📲 UPI"],["rz","💳 Razorpay"],["qr","📷 QR code"]].map(([k,l])=>`<div class="ponc${PON(k)?" on":""}"><span>${l}</span><button class="swt${PON(k)?" on":""}" onclick="ponT('${k}')"><i></i>${PON(k)?"ON":"OFF"}</button></div>`).join("")}</div></div>`+h}}
 
 /* ===================== v3.3: back button + app version ===================== */
-const APP_LATEST="3.8";
+const APP_LATEST="3.9";
 ATI.alogin="Staff login";
 {const _ab4=appBack;appBack=function(){if(location.hash.indexOf("#/admin")==0){clrHash();v=AH.pop()||"home";if(v=="alogin")v="home";return draw()}return _ab4()}}
 
@@ -1386,8 +1477,8 @@ function appVer(){try{return window.LMNative&&typeof LMNative.appVersion=="funct
 const verLess=(a,b)=>{const x=String(a).split(".").map(Number),y=String(b).split(".").map(Number);for(let i=0;i<Math.max(x.length,y.length);i++){if((x[i]||0)<(y[i]||0))return true;if((x[i]||0)>(y[i]||0))return false}return false};
 function apkUrl(){return location.origin+location.pathname.replace(/[^/]*$/,"")+"LaganMantra.apk?v="+Date.now()}
 function getUpdate(){const u=apkUrl();try{if(window.LMNative&&typeof LMNative.openUrl=="function")return LMNative.openUrl(u)}catch(e){}alert("Open "+location.origin+location.pathname.replace(/[^/]*$/,"")+" in Chrome and tap “Download Our App” to install the latest version.")}
-function verRow(){if(!AM)return"";const av=appVer(),old=!av||verLess(av,APP_LATEST);
- return`<div class=mr onclick="${old?"getUpdate()":"toast('✅ You have the latest version')"}"><span class=mic style="background:${old?"linear-gradient(135deg,#ff6f00,#ffc107)":"linear-gradient(135deg,#607d8b,#90a4ae)"}">${old?"⬆️":"ℹ️"}</span><b>${old?"Update available – tap to install v"+APP_LATEST:"App version "+av}<br><small style="font-weight:500;color:var(--m)">${av?"Installed: v"+av+" · ":"Installed: old version · "}Latest: v${APP_LATEST} · Website v${WEBV} · Server v${SY.sv||"?"}</small></b><em>›</em></div>`}
+function verRow(){if(!AM)return"";const av=appVer(),old=!av||verLess(av,LATEST());
+ return`<div class=mr onclick="${old?"getUpdate()":"toast('✅ You have the latest version')"}"><span class=mic style="background:${old?"linear-gradient(135deg,#ff6f00,#ffc107)":"linear-gradient(135deg,#607d8b,#90a4ae)"}">${old?"⬆️":"ℹ️"}</span><b>${old?"Update available – tap to install v"+LATEST():"App version "+av}<br><small style="font-weight:500;color:var(--m)">${av?"Installed: v"+av+" · ":"Installed: old version · "}Latest: v${LATEST()} · Website v${WEBV} · Server v${SY.sv||"?"}</small></b><em>›</em></div>`}
 {const _mn5=AV.menu;AV.menu=()=>{const h=_mn5(),r=verRow(),k=h.indexOf("<div class=ml>");return k<0?h+r:h.slice(0,k+14)+r+h.slice(k+14)}}
 
 /* ===================== v3.3 ===================== */
@@ -1456,8 +1547,8 @@ window.addEventListener("online",()=>{try{prInit()}catch(e){}});
  const _d=callDecline;callDecline=function(){NS();return _d.apply(this,arguments)}}
 
 /* app update: tell old apps automatically */
-function updPrompt(){try{if(!AM||!/LaganMantraApp/.test(navigator.userAgent))return;const av=appVer();if(av&&!verLess(av,APP_LATEST))return;if(sessionStorage.getItem("lmupd")==APP_LATEST)return;sessionStorage.setItem("lmupd",APP_LATEST);
- setTimeout(()=>{if($("#updp")||$("#callui"))return;document.body.insertAdjacentHTML("beforeend",`<div id=updp class=pdpw onclick="if(event.target==this)this.remove()"><div class="pdpc updw"><div class=updi>⬆️</div><h3>New update available</h3><p>LaganMantra <b>v${APP_LATEST}</b> is ready${av?` (you have v${E(av)})`:""}. Update now for faster notifications, better calls and the newest features.</p><button onclick="getUpdate();$('#updp').remove()">⬇ Update now</button><button class=o onclick="$('#updp').remove()">Later</button><p class=updn>After the download finishes, open it and tap <b>Update</b>. Your login and chats stay safe.</p></div></div>`)},2500)}catch(e){}}
+function updPrompt(){try{if(!AM||!/LaganMantraApp/.test(navigator.userAgent))return;const av=appVer();if(av&&!verLess(av,LATEST()))return;if(sessionStorage.getItem("lmupd")==LATEST())return;sessionStorage.setItem("lmupd",LATEST());
+ setTimeout(()=>{if($("#updp")||$("#callui"))return;document.body.insertAdjacentHTML("beforeend",`<div id=updp class=pdpw onclick="if(event.target==this)this.remove()"><div class="pdpc updw"><div class=updi>⬆️</div><h3>New update available</h3><p>LaganMantra <b>v${LATEST()}</b> is ready${av?` (you have v${E(av)})`:""}. Update now for faster notifications, better calls and the newest features.</p><button onclick="getUpdate();$('#updp').remove()">⬇ Update now</button><button class=o onclick="$('#updp').remove()">Later</button><p class=updn>After the download finishes, open it and tap <b>Update</b>. Your login and chats stay safe.</p></div></div>`)},2500)}catch(e){}}
 setTimeout(updPrompt,1500);
 
 /* chat photos / videos: auto-delete after N hours (Admin → Services) */
@@ -1563,8 +1654,8 @@ function vPre(){try{if(!chatW||!me||!navigator.onLine)return;const L=D.msg.filte
 {const _oc=openC;openC=function(id){const r=_oc.apply(this,arguments);setTimeout(vPre,1200);return r}}
 
 /* ---- update button at the top of the app whenever a newer app is ready ---- */
-function updNeeded(){try{if(!AM||!/LaganMantraApp/.test(navigator.userAgent))return false;const av=appVer();return!av||verLess(av,APP_LATEST)}catch(e){return false}}
-function updChip(){try{if(!updNeeded()||document.querySelector(".updchip"))return;const h=document.querySelector(".abar .avs")||document.querySelector(".htop .avs");if(h)h.insertAdjacentHTML("beforebegin",`<button class=updchip onclick="getUpdate()" title="Install the new app version">⬆ Update</button>`)}catch(e){}}
+function updNeeded(){try{if(!AM||!/LaganMantraApp/.test(navigator.userAgent))return false;const av=appVer();return!av||verLess(av,LATEST())}catch(e){return false}}
+function updChip0(){try{if(!updNeeded()||document.querySelector(".updchip"))return;const h=document.querySelector(".abar .avs")||document.querySelector(".htop .avs");if(h)h.insertAdjacentHTML("beforebegin",`<button class=updchip onclick="getUpdate()" title="Install the new app version">⬆ Update</button>`)}catch(e){}}
 {const _ad4=appDraw;appDraw=function(){const r=_ad4.apply(this,arguments);updChip();return r}}
 
 /* ===================== v3.8: "Continue with Google" login ===================== */
@@ -1752,6 +1843,107 @@ function tkSave(){const t=tkRead();for(const x of t.items)if(x.l=="url"||(/^http
  if(t.from&&t.to&&t.from>t.to)return alert("The end date is before the start date");
  const o=JSON.parse(JSON.stringify(t));o.items=o.items.filter(x=>x.t.trim()).map(x=>({t:x.t.trim(),l:x.l}));if(o.on&&!o.items.length)return alert("Please type at least one message");
  D.s.tick=o;TKE=null;save();lvSync();toast(o.on?"✅ Announcement bar published":"Announcement bar switched off");adm()}
+
+/* ===================== v4.0: always-visible app Update button (blinks when a new version is out) ===================== */
+let RLAT="";try{RLAT=localStorage.getItem("lmrlat")||""}catch(e){}
+function LATEST(){return RLAT&&verLess(APP_LATEST,RLAT)?RLAT:APP_LATEST}
+const vBase=()=>/^https?:/.test(location.protocol)?location.origin+location.pathname.replace(/[^/]*$/,""):"https://navalkk1989.github.io/laganmantra-app/";
+async function verCheck(show){try{const r=await fetch(vBase()+"version.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;const j=await r.json();
+ if(j&&/^\d+(\.\d+)*$/.test(String(j.app||""))){const was=LATEST();RLAT=String(j.app);try{localStorage.setItem("lmrlat",RLAT)}catch(e){}if(LATEST()!=was){updChip();try{updPrompt()}catch(e){}}}}catch(e){}if(show){const o=document.getElementById("updp");if(o)o.remove();updTap()}}
+function updChip(){try{if(!AM||!/LaganMantraApp/.test(navigator.userAgent))return;const nw=updNeeded();document.querySelectorAll(".updchip").forEach(b=>b.remove());
+ const btn=`<button type=button class="updchip ${nw?"new":"ok"}" onclick="updTap()" title="${nw?"New version – tap to update":"Check for app update"}">${nw?"⬆ Update":"⟳ Update"}</button>`;
+ const h=document.querySelector(".abar .avs")||document.querySelector(".abar>span:last-child")||document.querySelector(".htop .avs");
+ if(h)h.insertAdjacentHTML("beforebegin",btn);else{document.body.insertAdjacentHTML("beforeend",btn.replace('class="updchip','class="updchip wfix'));const b=document.querySelector(".updchip.wfix"),t=document.getElementById("lmtick");if(b&&t)b.style.top=(t.offsetHeight+10)+"px"}}catch(e){}}
+function updTap(){const av=appVer();if(updNeeded()){toast("⬇ Downloading LaganMantra v"+LATEST()+" – open the file when it finishes to install");return getUpdate()}
+ if($("#updp"))return;document.body.insertAdjacentHTML("beforeend",`<div id=updp class=pdpw onclick="if(event.target==this)this.remove()"><div class="pdpc updw"><div class=pdpi>✅</div><h3>Your app is up to date</h3><p>You have LaganMantra <b>v${E(av||"?")}</b> – this is the latest version.</p><p class=pdps>When a new version comes out, the <b>Update</b> button at the top starts blinking.</p><button onclick="$('#updp').remove();toast('⏳ Checking…');verCheck(1)">🔄 Check again</button><button class=o style="width:100%;margin-top:8px" onclick="$('#updp').remove();getUpdate()">⬇ Download the app again</button><button class=o style="width:100%;margin-top:8px" onclick="$('#updp').remove()">Close</button></div></div>`)}
+{const _dup=draw;draw=function(){const r=_dup.apply(this,arguments);if(AM&&!document.querySelector(".abar,.htop"))updChip();else if(!AM)document.querySelectorAll(".updchip.wfix").forEach(b=>b.remove());return r}}
+setTimeout(()=>verCheck(),1500);setInterval(()=>verCheck(),30*60*1000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)verCheck()});
+
+/* ===================== v4.0: 📄 Biodata PDF – made on the member's own phone / computer, saved straight to it ===================== */
+const BDT=[["royal","Royal","linear-gradient(135deg,#7b0d1e 0 45%,#e6c36a 45% 55%,#fffaf0 55%)"],["blush","Blush","linear-gradient(135deg,#ffc2d1,#ffe3ea 55%,#ffe0b8)"],["modern","Modern","linear-gradient(90deg,#0f766e 0 35%,#fff 35%)"],["night","Midnight","linear-gradient(135deg,#0b1633,#16244f 60%,#e6c36a 60% 64%,#16244f 64%)"]];
+function bdTop(rl){return{Hindu:"॥ श्री गणेशाय नमः ॥",Sikh:"ੴ ਸਤਿ ਨਾਮੁ",Muslim:"Bismillah-ir-Rahman-ir-Rahim",Christian:"✝ God is Love",Jain:"॥ जय जिनेन्द्र ॥",Buddhist:"☸ Namo Buddhaya"}[rl]||""}
+let BDX=null;
+function bdLoad(){const k="lmbio_"+(me&&me.id);let o={};try{o=JSON.parse(localStorage.getItem(k)||"{}")||{}}catch(e){}return Object.assign({t:"royal",top:bdTop(me.rl),ph:1,ct:1,pr:1,ad:""},o)}
+function bdStore(){try{localStorage.setItem("lmbio_"+me.id,JSON.stringify(BDX))}catch(e){}}
+const BDF=[["bt","Birth time","e.g. 10:45 AM"],["bp","Birth place","City of birth"],["gt","Gotra",""],["inc","Annual income","e.g. ₹ 8 Lakh"],["fn","Father's name",""],["fo","Father's occupation",""],["mn","Mother's name",""],["mo","Mother's occupation",""],["br","Brothers","e.g. 1 elder (married)"],["si","Sisters","e.g. 1 younger"],["ft","Family type","Joint / Nuclear"],["np","Native place",""]];
+function bdRead(){const B=BDX;["top","ad"].concat(BDF.map(f=>f[0])).forEach(k=>{const e=$("#bd_"+k);if(e)B[k]=e.value.trim()});["ph","ct","pr"].forEach(k=>{const e=$("#bd_"+k);if(e)B[k]=e.checked?1:0});bdStore();return B}
+function bdFmtD(d){try{const x=new Date(d);if(isNaN(x))return"";return x.toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"})}catch(e){return""}}
+function bdHTML(u,B,img){const th=B.t||"royal",r=(l,v)=>v&&String(v).trim()&&String(v).trim()!="-"?`<div class=bd-r><b>${E(l)}</b><span>${E(v)}</span></div>`:"",
+ sec=(ic,t,body)=>body&&body.replace(/\s/g,"")?`<div class=bd-sec><h3><i>${ic}</i> ${E(t)}</h3>${body}</div>`:"",g=a=>{const x=a.join("");return x?`<div class=bd-g>${x}</div>`:""},
+ a=age(u.dob),ht=u.ht?Math.floor(u.ht/12)+"' "+(u.ht%12)+'"':"",par=(n,o)=>n?(o?n+" ("+o+")":n):(o||""),p=u.pref||{},A2=x=>Array.isArray(x)?x.filter(y=>y&&y!="Any").join(", "):(x&&x!="Any"?x:""),
+ tags=[a?a+" yrs":"",ht,u.city||""].filter(Boolean).map(x=>`<span>${E(x)}</span>`).join(""),
+ photo=B.ph?`<div class=bd-ph>${img?`<img src="${img}">`:`<em>${E((u.name||"?")[0].toUpperCase())}</em>`}</div>`:"",
+ hd=`<div class=bd-hd>${photo}<div class=bd-nm><small>Marriage Biodata</small><h1>${E(u.name||"")}</h1><div class=bd-tags>${tags}</div></div></div>`,
+ personal=sec("❖","Personal details",g([r("Date of birth",bdFmtD(u.dob)),r("Birth time",B.bt),r("Birth place",B.bp),r("Age",a?a+" years":""),r("Height",ht),r("Weight",u.wt?u.wt+" kg":""),r("Complexion",u.cx),r("Religion",u.rl),r("Caste",u.cs),r("Gotra",B.gt),r("Manglik",u.mg),r("Mother tongue",u.mt),r("Lives in",[u.city,u.state].filter(Boolean).join(", ")),r("NRI status",u.nri&&!/^no/i.test(u.nri)?u.nri:"")])),
+ career=sec("❖","Education & career",g([r("Education",u.ed),r("College",u.sc),r("Occupation",u.oc),r("Annual income",B.inc)])),
+ family=sec("❖","Family details",g([r("Father",par(B.fn,B.fo)),r("Mother",par(B.mn,B.mo)),r("Brothers",B.br),r("Sisters",B.si),r("Family type",B.ft),r("Native place",B.np)])),
+ about=u.ds&&u.ds.trim()?sec("❖","About me",`<p class=bd-p>${E(u.ds.trim().slice(0,650))}</p>`):"",
+ il=intList(u),ints=il.length?sec("❖","Hobbies & interests",`<div class=bd-ch>${il.slice(0,14).map(x=>`<span>${E(x)}</span>`).join("")}</div>`):"",
+ pref=B.pr?sec("❖","Partner expectations",g([r("Age",p.a1||p.a2?(p.a1||18)+" – "+(p.a2||70)+" years":""),r("Height",p.h1||p.h2?[p.h1?Math.floor(p.h1/12)+"' "+(p.h1%12)+'"':"",p.h2?Math.floor(p.h2/12)+"' "+(p.h2%12)+'"':""].filter(Boolean).join(" – "):""),r("Religion",A2(p.rl)),r("Caste",A2(p.cs)),r("Education",p.ed&&p.ed!="Any"&&p.ed!="Not applicable"?p.ed+" or above":""),r("Manglik",p.mg&&p.mg!="Any"?p.mg:""),r("Complexion",A2(p.cx))])):"",
+ contact=B.ct?sec("❖","Contact",g([r("Mobile",u.phone?"+91 "+u.phone:""),r("Email",u.email),r("Address",B.ad)])):"",
+ top=B.top?`<div class=bd-top>${E(B.top)}</div>`:"",ft=`<div class=bd-ft>Created on ${E(SITE().brand)} · ${E(new Date().toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}))}</div>`;
+ if(th=="modern")return`<div class="bd bd-modern"><div class=bd-side>${hd}${contact}${ints}</div><div class=bd-main>${top}${personal}${career}${family}${about}${pref}${ft}</div></div>`;
+ const deco=th=="royal"?'<span class="bd-cn c1">❖</span><span class="bd-cn c2">❖</span><span class="bd-cn c3">❖</span><span class="bd-cn c4">❖</span>':th=="blush"?"<i class=o1></i><i class=o2></i><i class=o3></i>":th=="night"?"<i class=o1></i><i class=o2></i>":"";
+ return`<div class="bd bd-${th}">${deco}<div class=bd-in>${top}${hd}${personal}${career}${family}${about}${ints}${pref}${contact}${ft}</div></div>`}
+function bdH(n){const pb=parseFloat(getComputedStyle(n).paddingBottom)||0,bb=parseFloat(getComputedStyle(n).borderBottomWidth)||0;let m=0;n.querySelectorAll(":scope>.bd-in,:scope>.bd-side,:scope>.bd-main").forEach(c=>{m=Math.max(m,c.offsetTop+c.scrollHeight)});return Math.ceil(m+pb+bb)}
+function bdFit(n){let f=1;n.style.setProperty("--fs",f);while(bdH(n)>1123&&f>.7){f=Math.round((f-.03)*100)/100;n.style.setProperty("--fs",f)}return bdH(n)}
+function bdFonts(){if(document.getElementById("bdfont"))return;const l=document.createElement("link");l.id="bdfont";l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap";document.head.appendChild(l)}
+async function bdCrop(src){return new Promise(ok=>{const im=new Image();im.onload=()=>{try{const s=Math.min(im.width,im.height),c=document.createElement("canvas");c.width=c.height=Math.min(640,s);c.getContext("2d").drawImage(im,(im.width-s)/2,(im.height-s)/2*0.6,s,s,0,0,c.width,c.height);ok(c.toDataURL("image/jpeg",.9))}catch(e){ok("")}};im.onerror=()=>ok("");im.src=src})}
+async function bdPhoto(u){const p=(u.photos||[])[0];if(!p)return"";const s=PX(p);if(/^data:image/.test(s))return bdCrop(s);
+ try{const r=await fetch(s,{mode:"cors",credentials:"omit"});if(r.ok){const b=await r.blob();if(/^image\//.test(b.type))return bdCrop(await b2d(b))}}catch(e){}
+ const m=String(p).match(/[?&]id=([\w-]{20,})/)||String(p).match(/\/d\/([\w-]{20,})/);
+ if(m&&LV()){try{const j=await lvPost({action:"imgb64",id:m[1]});if(j&&j.ok&&j.data)return bdCrop(j.data)}catch(e){}}return""}
+let BDIMG=null;
+async function bdOpen(){if(!me)return go("login");bdFonts();BDX=bdLoad();BDIMG=null;const B=BDX;
+ document.body.insertAdjacentHTML("beforeend",`<div id=biop class=biow><div class=bioc><div><h3>📄 My Biodata</h3><p class=hint>A beautiful marriage biodata made from your profile. Add family details below (optional) and download the PDF.</p>
+ <label class=fl>Design</label><div class=bioth>${BDT.map(t=>`<b class="${B.t==t[0]?"on":""}" onclick="BDX.t='${t[0]}';document.querySelectorAll('.bioth b').forEach(x=>x.classList.remove('on'));this.classList.add('on');bdStore();bdPrev()"><i style="background:${t[2]}"></i>${t[1]}</b>`).join("")}</div>
+ <label class=fl>Top line (optional)</label><input id=bd_top value="${E(B.top||"")}" placeholder="e.g. ॥ श्री गणेशाय नमः ॥" oninput="bdPrevD()">
+ <div class=biock><label><input type=checkbox id=bd_ph ${B.ph?"checked":""} onchange="bdPrevD()"> Photo</label><label><input type=checkbox id=bd_ct ${B.ct?"checked":""} onchange="bdPrevD()"> Contact details</label><label><input type=checkbox id=bd_pr ${B.pr?"checked":""} onchange="bdPrevD()"> Partner expectations</label></div>
+ <label class=fl>Family &amp; birth details (optional)</label><div class=g2>${BDF.map(f=>`<input id=bd_${f[0]} value="${E(B[f[0]]||"")}" placeholder="${E(f[1]+(f[2]?" – "+f[2]:""))}" aria-label="${E(f[1])}" oninput="bdPrevD()">`).join("")}</div>
+ <label class=fl>Address (shown only if “Contact details” is ticked)</label><input id=bd_ad value="${E(B.ad||"")}" placeholder="House no., area, city" oninput="bdPrevD()">
+ <p class=hint style="margin-top:8px">Other details (name, date of birth, height, religion, education, about me…) come from your profile. To change them use <a href=# onclick="$('#biop').remove();editP();return false">Edit profile</a>.</p>
+ <div class=bionote>🔒 Your biodata is made on this ${AM?"phone":"device"} and saved straight into its Downloads. It is <b>not</b> uploaded to our website or server.</div></div>
+ <div><label class=fl style="margin-top:0">Preview</label><div class=biopv id=bdpv><div style="padding:40px;text-align:center;color:var(--m)">⏳ Preparing preview…</div></div>
+ <div class=biobar><button id=bdgo onclick="bdMake()">⬇ Download PDF</button><button class=o onclick="$('#biop').remove()">Close</button></div></div></div></div>`);
+ bdPrev();BDIMG=await bdPhoto(me);bdPrev()}
+let bdT=0;function bdPrevD(){clearTimeout(bdT);bdT=setTimeout(bdPrev,180)}
+function bdPrev(){const w=document.getElementById("bdpv");if(!w)return;bdRead();const k=(w.clientWidth||400)/794;w.innerHTML=`<div class=bdsc style="transform:scale(${k})">${bdHTML(me,BDX,BDIMG)}</div>`;const n=w.querySelector(".bd");const h=bdFit(n);w.style.height=Math.ceil(Math.max(1123,h)*k)+"px"}
+let H2C=null;
+function h2cLoad(){if(window.html2canvas)return Promise.resolve();if(H2C)return H2C;const L=["https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"];
+ H2C=new Promise((ok,no)=>{let i=0;const nx=()=>{if(i>=L.length){H2C=null;return no(new Error("LIB"))}const x=document.createElement("script");x.src=L[i++];x.onload=()=>window.html2canvas?ok():nx();x.onerror=nx;document.head.appendChild(x)};nx()});return H2C}
+function jpgPdf(pages,title){const enc=new TextEncoder(),parts=[],off=[];let len=0;const add=x=>{const u=typeof x=="string"?enc.encode(x):x;parts.push(u);len+=u.length};
+ const W=595.28,Hp=841.89,N=pages.length,obj=(n,body,bin)=>{off[n]=len;add(n+" 0 obj\n"+body);if(bin){add(bin);add("\nendstream")}add("\nendobj\n")};
+ add("%PDF-1.4\n");add(new Uint8Array([37,226,227,207,211,10]));
+ obj(1,"<< /Type /Catalog /Pages 2 0 R >>");obj(2,`<< /Type /Pages /Kids [${pages.map((p,i)=>(4+3*i)+" 0 R").join(" ")}] /Count ${N} >>`);
+ obj(3,`<< /Title (${String(title||"Biodata").replace(/[^\x20-\x7e]/g,"").replace(/[()\\]/g,"")}) /Producer (LaganMantra) >>`);
+ pages.forEach((p,i)=>{const pg=4+3*i,ct=5+3*i,im=6+3*i,h=W*p.h/p.w,cs=`q ${W.toFixed(2)} 0 0 ${h.toFixed(2)} 0 ${(Hp-h).toFixed(2)} cm /Im0 Do Q`;
+  obj(pg,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${Hp}] /Resources << /XObject << /Im0 ${im} 0 R >> >> /Contents ${ct} 0 R >>`);
+  obj(ct,`<< /Length ${cs.length} >>\nstream\n${cs}\nendstream`);
+  obj(im,`<< /Type /XObject /Subtype /Image /Width ${p.w} /Height ${p.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${p.b.length} >>\nstream\n`,p.b)});
+ const n=4+3*N,xr=len;let x=`xref\n0 ${n}\n0000000000 65535 f \n`;for(let i=1;i<n;i++)x+=String(off[i]).padStart(10,"0")+" 00000 n \n";
+ add(x+`trailer\n<< /Size ${n} /Root 1 0 R /Info 3 0 R >>\nstartxref\n${xr}\n%%EOF`);const out=new Uint8Array(len);let o=0;parts.forEach(u=>{out.set(u,o);o+=u.length});return out}
+function u8b64(u8){let s="";for(let i=0;i<u8.length;i+=32768)s+=String.fromCharCode.apply(null,u8.subarray(i,i+32768));return btoa(s)}
+async function saveBlob(name,u8,mime){if(window.LMNative&&typeof LMNative.saveFile=="function"){const r=String(LMNative.saveFile(u8b64(u8),name,mime)||"");if(r.indexOf("ok")==0){toast("✅ Saved in Downloads: "+r.slice(3));return true}
+  if(r=="perm"){alert("Please allow the storage permission, then tap Download again.");return false}alert("Could not save the file. "+r);return false}
+ if(AM&&window.LMNative){if(confirm("Downloading files needs the new app version (v"+LATEST()+").\n\nUpdate the app now?"))getUpdate();return false}
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([u8],{type:mime}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);toast("✅ Downloaded: "+name);return true}
+{const _dlb=dlBin;dlBin=async function(name,u8,mime){if(window.LMNative&&(typeof LMNative.saveFile=="function"||AM))return saveBlob(name,u8,mime);return _dlb.apply(this,arguments)}}
+async function bdMake(){const bt=$("#bdgo");if(bt&&bt.disabled)return;if(bt){bt.disabled=true;bt.textContent="⏳ Making your PDF…"}
+ try{bdRead();await h2cLoad();try{await document.fonts.ready}catch(e){}
+  const host=document.createElement("div");host.style.cssText="position:fixed;left:-12000px;top:0;width:794px;z-index:-1";host.innerHTML=bdHTML(me,BDX,BDIMG);document.body.appendChild(host);
+  const n=host.firstChild;bdFit(n);await new Promise(r=>setTimeout(r,60));const H=Math.max(1123,bdH(n));n.style.height=H+"px";
+  const cv=await html2canvas(n,{scale:2.5,useCORS:true,backgroundColor:"#ffffff",logging:false,width:794,height:H,windowWidth:900});host.remove();
+  const pw=cv.width,ph=Math.round(pw*1123/794),pages=[];
+  for(let y=0;y<cv.height-4;y+=ph){const h=Math.min(ph,cv.height-y),c=document.createElement("canvas");c.width=pw;c.height=h;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,pw,h);x.drawImage(cv,0,y,pw,h,0,0,pw,h);
+   const b=await new Promise(ok=>c.toBlob(ok,"image/jpeg",.9));pages.push({w:pw,h,b:new Uint8Array(await b.arrayBuffer())})}
+  const nm="Biodata_"+String(me.name||"Member").replace(/[^A-Za-z0-9]+/g,"_").replace(/^_|_$/g,"")+".pdf";
+  await saveBlob(nm,jpgPdf(pages,"Biodata - "+me.name),"application/pdf")}
+ catch(e){alert(e&&e.message=="LIB"?"Could not load the PDF maker. Please check your internet and try again.":"Sorry, the PDF could not be made: "+(e&&e.message||e))}
+ finally{const b2=$("#bdgo");if(b2){b2.disabled=false;b2.textContent="⬇ Download PDF"}}}
+function bdCard(){return`<div class="cd biocard"><span class=bic>📄</span><div><b>My Biodata (PDF)</b><p>A trendy marriage biodata made from your profile – 4 designs. Saved straight to your ${AM?"phone":"device"}.</p></div><button onclick="bdOpen()">✨ Create Biodata</button></div>`}
+{const _vpb=V.prof;V.prof=function(){return me?bdCard()+_vpb.apply(this,arguments):_vpb.apply(this,arguments)}}
+{const _mnb=AV.menu;AV.menu=function(){const h=_mnb.apply(this,arguments),k=h.indexOf("<div class=ml>");const row=`<div class=mr onclick="bdOpen()"><span class=mic style="background:linear-gradient(135deg,#d81b60,#ff8a65)">📄</span><b>My Biodata (PDF)</b><em>›</em></div>`;return k>=0?h.slice(0,k+14)+row+h.slice(k+14):h}}
+{const _lbb=window.lmBack;window.lmBack=function(){const o=document.getElementById("biop");if(o){o.remove();return true}return _lbb?_lbb.apply(this,arguments):false}}
 
 addEventListener("hashchange",draw);draw();
 </script></body></html>
