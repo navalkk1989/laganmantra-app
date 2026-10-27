@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><script>var WEBV="4.2";/* ===== safety net: if something breaks, show a message + Reload instead of a blank screen ===== */
+<!DOCTYPE html><html lang="en"><head><script>var WEBV="4.3";/* ===== safety net: if something breaks, show a message + Reload instead of a blank screen ===== */
 (function(){const blank=()=>{const t=((document.body||{}).innerText||"").trim();return t.length<20||(/Loading…/.test(t)&&t.length<60)},show=msg=>{try{if(document.getElementById("lmerr"))return;const d=document.createElement("div");d.id="lmerr";d.style.cssText="position:fixed;left:12px;right:12px;bottom:110px;z-index:99999;background:#fff;color:#2b1a24;border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);font:14px/1.45 sans-serif";d.innerHTML='<b>⚠️ Something went wrong while opening LaganMantra.</b><br><small style="color:#7a6571;word-break:break-word">'+String(msg).replace(/[<>&]/g,"").slice(0,220)+'</small><div style="display:flex;gap:8px;margin-top:10px"><button style="flex:1;padding:10px;border:0;border-radius:99px;background:#8b0a24;color:#fff;font-weight:700" onclick="location.reload()">🔄 Reload</button><button style="flex:1;padding:10px;border:1px solid #8b0a24;border-radius:99px;background:#fff;color:#8b0a24;font-weight:700" onclick="try{const k=[\'lmme\',\'lmmeo\',\'lmst\',\'lmak\'],keep={};k.forEach(x=>{const v=localStorage.getItem(x);if(v)keep[x]=v});localStorage.clear();for(const x in keep)localStorage.setItem(x,keep[x])}catch(e){}location.reload()">🧹 Repair</button></div>';document.body.appendChild(d)}catch(e){}};
  window.addEventListener("error",e=>{if(e&&e.message&&!/ResizeObserver|Script error/.test(e.message))setTimeout(()=>{if(blank())show(e.message)},800)});
  setTimeout(()=>{try{if(blank())show("The page did not finish loading. Please check your internet.")}catch(e){}},6000)})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#a3122f"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LaganMantra"><link rel="apple-touch-icon" href="icon-192.png"><title>LaganMantra – Rishta Wahi, Jo Dil Se Ho</title>
@@ -314,7 +314,7 @@ body:has(.ltab) #bot,body:has(#fpid) #bot,body:has(#fpc) #bot{display:none!impor
 .updchip.ok{background:rgba(255,255,255,.18)!important;color:#fff!important;border:1px solid rgba(255,255,255,.55)!important;box-shadow:none!important;animation:none!important}
 .updchip.new{animation:updb 1.1s ease-in-out infinite!important}
 @keyframes updb{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,193,7,.95),0 3px 10px rgba(255,111,0,.45);filter:brightness(1)}50%{transform:scale(1.08);box-shadow:0 0 0 9px rgba(255,193,7,0),0 3px 10px rgba(255,111,0,.45);filter:brightness(1.25)}}
-.updchip.wfix{position:fixed;top:14px;right:12px;z-index:30;margin:0!important}
+.updchip.wfix{position:absolute;top:14px;right:12px;z-index:30;margin:0!important}
 .updchip.ok.wfix{background:rgba(0,0,0,.35)!important}
 .biow{position:fixed;inset:0;z-index:2147482000;background:rgba(20,5,12,.62);overflow:auto;padding:14px;-webkit-overflow-scrolling:touch}
 .bioc{max-width:1040px;margin:0 auto;background:var(--c,#fff);border-radius:20px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
@@ -419,6 +419,22 @@ body:has(.ltab) #bot,body:has(#fpid) #bot,body:has(#fpc) #bot{display:none!impor
 .cxs button{margin-top:2px}
 .pcx{font-size:13px;color:#8a2a1f;background:#fff3ef;border:1px solid #f3d0c6;border-radius:12px;padding:8px 12px;margin:10px 0}
 .phsb{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}.phsb div{background:var(--s);border-radius:14px;padding:12px;text-align:center}.phsb b{display:block;font-size:22px;color:var(--p)}.phsb small{color:var(--m)}
+.apf{margin:22px 14px 18px;border-radius:24px;overflow:hidden;background:var(--c,#fff);box-shadow:0 14px 34px rgba(106,27,154,.16),0 2px 6px rgba(0,0,0,.06);border:1px solid rgba(139,10,36,.08)}
+.apfh{background:linear-gradient(110deg,#8b0a24,#6a1b9a 55%,#8b0a24);background-size:200% 100%;animation:ntsh 9s linear infinite;color:#fff;text-align:center;padding:11px 14px;font-size:13.5px;letter-spacing:.2px}
+.apfb{padding:16px 16px 14px}
+.apfc{display:flex;gap:12px;align-items:center}.apfc .lgo{flex:none;width:96px;height:50px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.apfc b{display:block;font-size:15.5px;color:var(--p)}.apfc a,.apfc span.ad{display:flex;gap:6px;font-size:13px;color:var(--m);text-decoration:none;margin-top:3px;line-height:1.35}
+.apft{display:flex;align-items:center;gap:8px;margin:16px 0 9px;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8b0a24}.apft:after{content:"";flex:1;height:1.5px;background:linear-gradient(90deg,rgba(139,10,36,.35),transparent)}
+.apfg{display:grid;grid-template-columns:1fr;gap:9px}
+.apfi{display:flex;gap:9px;align-items:center;padding:10px;border-radius:16px;background:var(--s,#fff6f0);text-decoration:none;color:inherit;min-width:0;border:1px solid rgba(0,0,0,.04)}
+.apfi i{flex:none;width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:17px;color:#fff;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.apfi span{min-width:0}.apfi small{display:block;font-size:11px;color:var(--m);font-weight:600}.apfi b{display:block;font-size:14.5px;word-break:break-word}.apfi{position:relative}a.apfi:after{content:"›";position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--m);opacity:.6}
+.apfl{display:flex;flex-wrap:wrap;gap:8px}
+.apfl a{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:99px;background:#fff;border:1.5px solid rgba(139,10,36,.18);color:#5a1426;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 2px 6px rgba(139,10,36,.06)}
+.apfl a:active{transform:scale(.96)}
+.apfs{display:flex;gap:10px;justify-content:center;margin-top:14px}.apfs a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.apfcp{text-align:center;font-size:12px;color:var(--m);margin:14px 0 0}
+@media (prefers-color-scheme:dark){.apfl a{background:transparent;color:inherit}}
 .bulk{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:8px 10px;border-radius:12px;background:var(--s);margin-bottom:8px;opacity:.55;pointer-events:none}.bulk.on{opacity:1;pointer-events:auto;border:2px solid #1e88e5}.bulk button{padding:6px 10px;font-size:12.5px}
 .usel{width:18px!important;height:18px;margin:0!important}
 .upib{display:inline-block;margin:8px 0;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,#00a86b,#1e88e5);color:#fff!important;text-decoration:none;font-weight:800}
@@ -2025,6 +2041,20 @@ AT.phs=()=>{if(staff.r!="Admin")return`<div class=cd>Only the Admin can do this.
  ${PHS&&PHS.run?`<div class=svst>⏳ Working… this can take a few minutes. Keep this page open.</div>`:""}${PHS&&PHS.err?`<div class="svst no">⚠️ ${E(PHS.err)}</div>`:""}${PHS&&PHS.fin&&!PHS.err?`<div class="svst ok">✅ Done. ${PHS.done?PHS.done+" photo(s) made smaller, "+kbS(PHS.saved)+" saved.":"All photos are already small."}</div>`:""}
  <label class=fl>Make smaller every photo bigger than</label><select id=phs_max style="max-width:260px">${[[200000,"200 KB"],[300000,"300 KB (recommended)"],[500000,"500 KB"]].map(([v,l])=>`<option value=${v} ${(PHS?PHS.max:300000)==v?"selected":""}>${l}</option>`).join("")}</select>
  <div style="margin-top:12px"><button onclick="phsRun()" ${PHS&&PHS.run?"disabled":""}>🗜 Make old photos smaller</button></div></div>`};
+
+/* ===================== v4.3: company details + quick links on the app home & login page ===================== */
+function apFoot(){const c=CPV(),S=SITE(),ph=String(c.ph||"").replace(/\D/g,""),wa=String(c.wa||"").replace(/\D/g,""),mp=c.map||(c.addr?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(c.addr):""),
+ t=(href,ic,bg,l,v,ext)=>`<a class=apfi href="${E(href)}"${ext?" target=_blank rel=noopener":""}><i style="background:${bg}">${ic}</i><span><small>${l}</small><b>${E(v)}</b></span></a>`,
+ tiles=[ph?t("tel:+91"+ph,"📞","linear-gradient(135deg,#d81b60,#8b0a24)","Call us","+91 "+c.ph):"",wa?t("https://wa.me/91"+wa+"?text="+encodeURIComponent("Hello "+S.brand),"💬","linear-gradient(135deg,#25d366,#128c7e)","WhatsApp","+91 "+c.wa,1):"",c.em?t("mailto:"+c.em,"✉️","linear-gradient(135deg,#1e88e5,#5e35b1)","Email",c.em):"",c.hrs?`<div class=apfi><i style="background:linear-gradient(135deg,#ff9800,#f4511e)">🕘</i><span><small>Working hours</small><b>${E(c.hrs)}</b></span></div>`:""].join(""),
+ L=[["📞","Contact Us","contact()"],["📜","Terms","legal('tc')"],["🔒","Privacy","legal('pp')"],["💸","Refund","legal('rf')"],["🚫","Cancellation","legal('rf')"],["💎","Plans","go('plans')"]],
+ soc=[["fb","f","#1877f2"],["ig","◎","linear-gradient(45deg,#f58529,#dd2a7b,#8134af)"],["yt","▶","#ff0000"],["tw","𝕏","#111"],["li","in","#0a66c2"]].filter(([k])=>c[k]).map(([k,l,bg])=>`<a href="${E(c[k])}" target=_blank rel=noopener style="background:${bg}" aria-label="${k}">${l}</a>`).join("");
+ return`<section class="apf lmrv"><div class=apfh>💞 <b>${E(S.brand)}</b>${c.legal?` – A venture of <b>${E(c.legal)}</b>`:""}</div><div class=apfb>
+ <div class=apfc><span class=lgo></span><div><b>${E(c.co||S.brand)}</b>${c.addr?(mp?`<a href="${E(mp)}" target=_blank rel=noopener>📍 <span>${E(c.addr)}</span></a>`:`<span class=ad>📍 ${E(c.addr)}</span>`):""}</div></div>
+ ${tiles?`<div class=apft>Contact us</div><div class=apfg>${tiles}</div>`:""}
+ <div class=apft>Quick links</div><div class=apfl>${L.map(([i,l,f])=>`<a href=# onclick="${f};return false">${i} ${l}</a>`).join("")}</div>
+ ${soc?`<div class=apfs>${soc}</div>`:""}<p class=apfcp>${S.copy?E(S.copy):`© ${new Date().getFullYear()} ${E(c.co||S.brand)}. All rights reserved.`}</p></div></section>`}
+{const _ahf=AV.home;AV.home=function(){let h=_ahf.apply(this,arguments);if(!AM)return h;const k=h.lastIndexOf('<p class=ntuv>');if(me&&k>0){const e=h.indexOf('</p>',k)+4;return h.slice(0,k)+apFoot()+h.slice(e)}return h+apFoot()}}
+{const _vlf=V.login;V.login=function(){const h=_vlf.apply(this,arguments);return AM?h+apFoot():h}}
 
 addEventListener("hashchange",draw);draw();
 </script></body></html>
